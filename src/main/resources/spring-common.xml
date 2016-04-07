@@ -15,52 +15,52 @@
 	                        http://www.springframework.org/schema/tx/spring-tx.xsd
 	                       ">
     <!-- 设置使用注解的类所在的jar包 -->
-    <context:component-scan base-package="com.codethink.bts" />
+    <!--<context:component-scan base-package="com.codethink.bts" />-->
     <!-- 属性文件 -->
     <context:property-placeholder location="classpath*:app.properties" ignore-unresolvable="true" />
 
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="${jdbc.driverClassName}" />
-        <property name="url" value="${jdbc.url}" />
-        <property name="username" value="${jdbc.username}" />
-        <property name="password" value="${jdbc.password}" />
-        <property name="validationQuery" value="SELECT 1" />
-        <property name="testOnBorrow" value="true" />
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
+        <!--<property name="driverClassName" value="${jdbc.driverClassName}" />-->
+        <!--<property name="url" value="${jdbc.url}" />-->
+        <!--<property name="username" value="${jdbc.username}" />-->
+        <!--<property name="password" value="${jdbc.password}" />-->
+        <!--<property name="validationQuery" value="SELECT 1" />-->
+        <!--<property name="testOnBorrow" value="true" />-->
 
-        <!--initialSize: 初始化连接 -->
-        <property name="initialSize" value="20" />
-        <!--maxIdle: 最大空闲连接 -->
-        <property name="maxIdle" value="40" />
-        <!--minIdle: 最小空闲连接 -->
-        <property name="minIdle" value="20" />
-        <!--maxActive: 最大连接数量 -->
-        <property name="maxActive" value="100" />
-        <!--maxWait: 超时等待时间以毫秒为单位 -->
-        <property name="maxWait" value="5000" />
-        <!--removeAbandoned: 是否自动回收超时连接 -->
-        <property name="removeAbandoned" value="true" />
-        <!--removeAbandonedTimeout: 超时时间(以秒数为单位) -->
-        <property name="removeAbandonedTimeout" value="180" />
-    </bean>
+        <!--&lt;!&ndash;initialSize: 初始化连接 &ndash;&gt;-->
+        <!--<property name="initialSize" value="20" />-->
+        <!--&lt;!&ndash;maxIdle: 最大空闲连接 &ndash;&gt;-->
+        <!--<property name="maxIdle" value="40" />-->
+        <!--&lt;!&ndash;minIdle: 最小空闲连接 &ndash;&gt;-->
+        <!--<property name="minIdle" value="20" />-->
+        <!--&lt;!&ndash;maxActive: 最大连接数量 &ndash;&gt;-->
+        <!--<property name="maxActive" value="100" />-->
+        <!--&lt;!&ndash;maxWait: 超时等待时间以毫秒为单位 &ndash;&gt;-->
+        <!--<property name="maxWait" value="5000" />-->
+        <!--&lt;!&ndash;removeAbandoned: 是否自动回收超时连接 &ndash;&gt;-->
+        <!--<property name="removeAbandoned" value="true" />-->
+        <!--&lt;!&ndash;removeAbandonedTimeout: 超时时间(以秒数为单位) &ndash;&gt;-->
+        <!--<property name="removeAbandonedTimeout" value="180" />-->
+    <!--</bean>-->
 
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource" />
-    </bean>
+    <!--<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource" />-->
+    <!--</bean>-->
 
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="get*" read-only="true" />
-            <tx:method name="query*" read-only="true" />
-            <tx:method name="find*" read-only="true" />
-            <tx:method name="list*" read-only="true" />
-            <tx:method name="*" propagation="REQUIRED" />
-        </tx:attributes>
-    </tx:advice>
+    <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+        <!--<tx:attributes>-->
+            <!--<tx:method name="get*" read-only="true" />-->
+            <!--<tx:method name="query*" read-only="true" />-->
+            <!--<tx:method name="find*" read-only="true" />-->
+            <!--<tx:method name="list*" read-only="true" />-->
+            <!--<tx:method name="*" propagation="REQUIRED" />-->
+        <!--</tx:attributes>-->
+    <!--</tx:advice>-->
 
-    <aop:config>
-        <aop:pointcut id="allManagerMethod" expression="execution(* com.codethink.bts.service.*.*Impl.*(..))" />
-        <aop:advisor pointcut-ref="allManagerMethod" advice-ref="txAdvice" />
-    </aop:config>
+    <!--<aop:config>-->
+        <!--<aop:pointcut id="allManagerMethod" expression="execution(* com.codethink.bts.service.*.*Impl.*(..))" />-->
+        <!--<aop:advisor pointcut-ref="allManagerMethod" advice-ref="txAdvice" />-->
+    <!--</aop:config>-->
 
     <!--<bean id="sqlSessionFactory"-->
           <!--class="org.mybatis.spring.SqlSessionFactoryBean">-->
@@ -74,4 +74,5 @@
         <!--<property name="basePackage" value="com.codethink.dao"/>-->
         <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
     <!--</bean>-->
+
 </beans>

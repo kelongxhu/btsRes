@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>贵州基站健康档案管理系统</title>
+    <title></title>
     <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
     <c:set var="ctx" value="${pageContext.request.contextPath}"/>
     <link href="${ctx}/static/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />
@@ -162,12 +162,12 @@
     </div>
 </div>
 <div region="south" border="false" style="height:25px;background:#55B6F4;padding:5px;text-align:center;color: #fff;">
-    贵州基站健康档案管理系统
+    ------------
 </div>
 <div region="center">
     <div id="main-center" class="easyui-tabs" fit="true" border="false">
         <div title="首页" style="">
-            <iframe frameborder="0" style="width:100%;height:100%;" src="${ctx}/layouts/first.jsp">
+            <iframe frameborder="0" style="width:100%;height:100%;" src="${ctx}/layouts/first.jsp"/>
         </div>
     </div>
 </div>
